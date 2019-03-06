@@ -1,18 +1,30 @@
 body {
-  background-color: lightblue;
+  background-image: linear-gradient(-90deg,  #3399ff, #0066ff);
   height: 100%;
+  overflow-x: hidden;
 }
 
 .header {
-  background-color: blue;
-  width : 100%;
-  position: relative;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 15%;
+    background-color: blue;
+    position: fixed;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
 }
 
-#log_form {
-  float: right;
+#password_reset a:link, #password_reset a:visited {
+    font-size: 10px;
+    }
+
+.log_form {
+margin: 0 auto;
+position: fixed;
+    left: 50%;
 }
 
 .footer {
@@ -23,3 +35,50 @@ body {
 	background-color: white;
 	text-align: center;
 }
+
+.grid-container {
+    position: absolute;
+    top: 20%;
+    display: grid;
+    width: 97%;
+    grid-column-gap: 3%;
+    grid-row-gap: 20px;
+    /*grid-template-columns: auto auto auto;*/
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  width: 90%;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+#logbar {
+	background-color: white;
+	text-align: center;
+    height: 10$;
+      z-index: 1;
+      background-color: white;
+      overflow-x: hidden; /* Disable horizontal scroll */
+      padding-tp: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: left;
+
+}
+
+.hotel-image {
+  width: auto;
+  }
+
+.hotel-name {
+    background color: white;
+    font-size 30px;
+    text-align: center
+    font-family: Arial, Helvetica, sans-serif;
+    }
