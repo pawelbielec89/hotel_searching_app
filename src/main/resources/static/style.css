@@ -1,0 +1,12 @@
+body {
+  background-color: lightblue;
+}
+
+#header {
+  background-color: blue;
+  width : 100%;
+}
+
+#log_form {
+  float: right;
+}
