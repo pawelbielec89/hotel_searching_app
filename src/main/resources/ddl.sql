@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS hotel (
   id SERIAL PRIMARY KEY,
-	hotel_name VARCHAR(100),
+	hotel_name VARCHAR(100) UNIQUE NOT NULL,
 	city VARCHAR(100),
 	adress VARCHAR(100),
 	email VARCHAR(100),

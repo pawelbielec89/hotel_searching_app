@@ -1,5 +1,8 @@
 package com.codecool.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +24,23 @@ public class Hotel {
     private String website;
     @Column(name = "rate")
     private int rate;
+
+//    public Hotel(@JsonProperty("hotel_name") String name, @JsonProperty("city") String city,
+//          @JsonProperty("adress") String adress, @JsonProperty("email") String email,
+//          @JsonProperty("website") String website) {
+//        this.name = name;
+//        this.city = city;
+//        this.adress = adress;
+//        this.website = website;
+//        this.email = email;
+//    }
+
+    public Hotel() {}
+
+    @Autowired(required = false)
+    public Hotel(@JsonProperty("hotel_name") String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
