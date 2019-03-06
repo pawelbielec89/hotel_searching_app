@@ -5,7 +5,7 @@ body {
 }
 
 #header {
-background-image: linear-gradient(-90deg, #4d94ff, #0066ff);
+background-image: linear-gradient(-90deg, #000080, #0000ff);
     position: relative;
 	left: 0;
 	top: 0;
@@ -18,12 +18,19 @@ background-image: linear-gradient(-90deg, #4d94ff, #0066ff);
     z-index: 1;
 }
 
+h1 { color: white; }
+
 #password_reset a:link, #password_reset a:visited {
     font-size: 10px;
+    color: white;
+    }
+
+.label {
+    color: white
     }
 
 #log_form {
-background-image: linear-gradient(-90deg, #4d94ff, #0066ff);
+background-image: linear-gradient(-90deg, #000080, #0000ff);
     position: relative;
     text-align: center;
 }
@@ -79,7 +86,7 @@ background-image: linear-gradient(-90deg, #4d94ff, #0066ff);
 }
 
 .hotel-image {
-  width: auto;
+  max-width:100%;
   }
 
 .hotel-name {
