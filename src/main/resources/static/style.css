@@ -21,10 +21,15 @@ body {
     font-size: 10px;
     }
 
-.log_form {
-margin: 0 auto;
-position: fixed;
-    left: 50%;
+#log_form {
+        position: relative;
+      text-align: center;
+}
+
+.column_center {
+  display: inline-block;
+  padding: 20px;
+  border:1px solid red;
 }
 
 .footer {
@@ -43,7 +48,6 @@ position: fixed;
     width: 97%;
     grid-column-gap: 3%;
     grid-row-gap: 20px;
-    /*grid-template-columns: auto auto auto;*/
     grid-template-columns: repeat(3, 1fr);
     padding: 10px;
 
