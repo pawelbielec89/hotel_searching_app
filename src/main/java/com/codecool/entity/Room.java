@@ -14,8 +14,6 @@ public class Room {
     private int id;
     @Column(name = "beds_amount")
     private int beds_amount;
-    @Column(name = "max_persons")
-    private int max_persons;
     @Column(name = "description")
     private String description;
     @ManyToOne(fetch = FetchType.LAZY)
