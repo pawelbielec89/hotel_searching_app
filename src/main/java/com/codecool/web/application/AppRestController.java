@@ -3,20 +3,18 @@ package com.codecool.web.application;
 import com.codecool.business.service.HotelService;
 import com.codecool.entity.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@ResponseBody
 @RequestMapping(value = "hotels2")
-public class RestController {
+@RestController
+public class AppRestController {
 
     private final HotelService hotelService;
 
     @Autowired
-    public RestController(HotelService hotelService) {
+    public AppRestController(HotelService hotelService) {
         this.hotelService = hotelService;
     }
 
