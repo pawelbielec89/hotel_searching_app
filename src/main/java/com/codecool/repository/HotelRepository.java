@@ -11,6 +11,18 @@ import java.util.List;
 public interface HotelRepository extends CrudRepository<Hotel, Integer> {
 
  List<Hotel> findByRate(Integer rate);
+
  List<Hotel> findByCity(String city);
- Hotel removeHotelByName(String hotel_name);
+
+ default Hotel findHotelByName(String hotel_name) {
+
+  for (Hotel hotel : this.findAll()) {
+   if (hotel.getName().contains(hotel_name)) {
+    return hotel;
+   }
+  }
+  return null;
+ }
 }
+
+
