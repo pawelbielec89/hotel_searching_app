@@ -1,17 +1,18 @@
-package com.codecool;
+package com.codecool.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "hotel")
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "hotel_name")
     private String name;
     @Column(name = "city")
@@ -24,6 +25,11 @@ public class Hotel {
     private String website;
     @Column(name = "rate")
     private int rate;
+
+    @OneToMany(mappedBy = "hotel",
+                cascade = CascadeType.ALL,
+                orphanRemoval = true)
+    private List<Room> rooms = new ArrayList<>();
 
 //    public Hotel(@JsonProperty("hotel_name") String name, @JsonProperty("city") String city,
 //          @JsonProperty("adress") String adress, @JsonProperty("email") String email,

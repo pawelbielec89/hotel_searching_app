@@ -27,10 +27,10 @@ public class RestController {
 
 
     @PostMapping
-    public int addNewHotel(String hotel_name, String city, String website) {
-        Hotel hotel = new Hotel(hotel_name);
-        hotel.setCity(city);
-        hotel.setWebsite(website);
+    public int addNewHotel(@RequestBody Hotel hotel) {
+//        Hotel hotel = new Hotel(hotel_name);
+//        hotel.setCity(city);
+//        hotel.setWebsite(website);
 
         this.hotelService.addNewHotel(hotel);
         return 1;
