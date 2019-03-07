@@ -48,4 +48,17 @@ public class HotelService {
             return 0;
         }
     }
+
+    public int updateHotelEmail(String hotelName, String email) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel != null) {
+            hotel.setEmail(email);
+            hotelRepository.save(hotel);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    
 }
