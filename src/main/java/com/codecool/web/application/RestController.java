@@ -59,5 +59,11 @@ public class RestController {
         this.hotelService.updateHotelCity(hotel_name, city);
         return 1;
     }
+
+    //@PostMapping - to test it you need commment another PostMapping for now
+    public int updateHotelAddress(String hotel_name, String address) {
+        this.hotelService.updateHotelCity(hotel_name, address);
+        return 1;
+    }
 }
 
