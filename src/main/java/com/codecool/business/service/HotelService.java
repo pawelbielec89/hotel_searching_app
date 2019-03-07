@@ -60,5 +60,15 @@ public class HotelService {
         }
     }
 
+    public int updateHotelCity(String hotelName, String city) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel != null) {
+            hotel.setCity(city);
+            hotelRepository.save(hotel);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
 }
