@@ -26,7 +26,7 @@ public class RestController {
     }
 
 
-
+    @PostMapping
     public int addNewHotel(String hotel_name, String city, String website) {
         Hotel hotel = new Hotel(hotel_name);
         hotel.setCity(city);
@@ -36,12 +36,13 @@ public class RestController {
         return 1;
     }
 
+    //@PostMapping - to test it you need commment another PostMapping for now
     public int removeHotelByName(String hotel_name) {
         this.hotelService.removeHotel(hotel_name);
         return 1;
     }
 
-    @PostMapping
+    //@PostMapping - to test it you need commment another PostMapping for now
     public int updateHotelRate(String hotel_name, int rate) {
         this.hotelService.updateHotelRate(hotel_name, rate);
         return 1;
