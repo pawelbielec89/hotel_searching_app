@@ -28,6 +28,16 @@ public class HotelService {
         return hotelList;
     }
 
+    public List<Hotel> getHotelsByCity(String cityName) {
+        Iterable<Hotel> hotels = this.hotelRepository.findAll();
+        List<Hotel> hotelListInCity = new ArrayList<>();
+        for (Hotel h : hotels) {
+            if (h.getCity().equals(cityName))
+                hotelListInCity.add(h);
+        }
+        return hotelListInCity;
+    }
+
     public int addNewHotel(Hotel hotel) {
         hotelRepository.save(hotel);
         return 1;
@@ -42,6 +52,50 @@ public class HotelService {
         Hotel hotel = getHotelByName(hotelName);
         if(hotel != null) {
             hotel.setRate(rate);
+            hotelRepository.save(hotel);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int updateHotelEmail(String hotelName, String email) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel != null) {
+            hotel.setEmail(email);
+            hotelRepository.save(hotel);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int updateHotelCity(String hotelName, String city) {
+        Hotel hotel = getHotelByName(hotelName);
+        if (hotel != null) {
+            hotel.setCity(city);
+            hotelRepository.save(hotel);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int updateHotelAddress(String hotelName, String address) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel != null) {
+            hotel.setAdress(address);
+            hotelRepository.save(hotel);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int updateHotelWebsite(String hotelName, String website) {
+        Hotel hotel = getHotelByName(hotelName);
+        if (hotel != null) {
+            hotel.setWebsite(website);
             hotelRepository.save(hotel);
             return 1;
         } else {

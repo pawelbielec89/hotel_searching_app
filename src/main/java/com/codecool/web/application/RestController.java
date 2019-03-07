@@ -47,5 +47,29 @@ public class RestController {
         this.hotelService.updateHotelRate(hotel_name, rate);
         return 1;
     }
+
+    //@PostMapping - to test it you need commment another PostMapping for now
+    public int updateHotelEmail(String hotel_name, String email) {
+        this.hotelService.updateHotelEmail(hotel_name, email);
+        return 1;
+    }
+
+    //@PostMapping - to test it you need commment another PostMapping for now
+    public int updateHotelCity(String hotel_name, String city) {
+        this.hotelService.updateHotelCity(hotel_name, city);
+        return 1;
+    }
+
+    //@PostMapping - to test it you need commment another PostMapping for now
+    public int updateHotelAddress(String hotel_name, String address) {
+        this.hotelService.updateHotelAddress(hotel_name, address);
+        return 1;
+    }
+
+    //@PostMapping - to test it you need commment another PostMapping for now
+    public int updateHotelWebsite(String hotel_name, String website) {
+        this.hotelService.updateHotelWebsite(hotel_name, website);
+        return 1;
+    }
 }
 
