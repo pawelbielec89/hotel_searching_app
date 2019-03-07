@@ -28,6 +28,16 @@ public class HotelService {
         return hotelList;
     }
 
+    public List<Hotel> getHotelsByCity(String cityName) {
+        Iterable<Hotel> hotels = this.hotelRepository.findAll();
+        List<Hotel> hotelListInCity = new ArrayList<>();
+        for (Hotel h : hotels) {
+            if (h.getCity().equals(cityName))
+                hotelListInCity.add(h);
+        }
+        return hotelListInCity;
+    }
+
     public int addNewHotel(Hotel hotel) {
         hotelRepository.save(hotel);
         return 1;
@@ -92,5 +102,4 @@ public class HotelService {
             return 0;
         }
     }
-
 }
