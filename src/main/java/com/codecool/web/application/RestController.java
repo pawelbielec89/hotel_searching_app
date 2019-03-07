@@ -62,7 +62,13 @@ public class RestController {
 
     //@PostMapping - to test it you need commment another PostMapping for now
     public int updateHotelAddress(String hotel_name, String address) {
-        this.hotelService.updateHotelCity(hotel_name, address);
+        this.hotelService.updateHotelAddress(hotel_name, address);
+        return 1;
+    }
+
+    //@PostMapping - to test it you need commment another PostMapping for now
+    public int updateHotelWebsite(String hotel_name, String website) {
+        this.hotelService.updateHotelWebsite(hotel_name, website);
         return 1;
     }
 }

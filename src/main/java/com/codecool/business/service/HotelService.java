@@ -71,15 +71,26 @@ public class HotelService {
         }
     }
 
-        public int updateHotelAddress(String hotelName, String address) {
-            Hotel hotel = getHotelByName(hotelName);
-            if(hotel != null) {
-                hotel.setAdress(address);
-                hotelRepository.save(hotel);
-                return 1;
-            } else {
-                return 0;
-            }
+    public int updateHotelAddress(String hotelName, String address) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel != null) {
+            hotel.setAdress(address);
+            hotelRepository.save(hotel);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int updateHotelWebsite(String hotelName, String website) {
+        Hotel hotel = getHotelByName(hotelName);
+        if (hotel != null) {
+            hotel.setWebsite(website);
+            hotelRepository.save(hotel);
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
 }
