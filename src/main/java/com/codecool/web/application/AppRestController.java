@@ -2,6 +2,7 @@ package com.codecool.web.application;
 
 import com.codecool.business.service.HotelService;
 import com.codecool.entity.Hotel;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,51 +24,51 @@ public class AppRestController {
         return hotelService.getHotels();
     }
 
+    @GetMapping(path = "{hotel_name}")
+    public Hotel getHotelByName(@PathVariable("hotel_name") String hotel_name){
+         return hotelService.getHotelByName(hotel_name);
+    }
+
+    @GetMapping(path = "id/{id}")
+    public Hotel getHotelById(@PathVariable("id") Integer id) {
+        return hotelService.getHotelById(id).get();
+    }
+
 
     @PostMapping
     public int addNewHotel(@RequestBody Hotel hotel) {
-//        Hotel hotel = new Hotel(hotel_name);
-//        hotel.setCity(city);
-//        hotel.setWebsite(website);
+        return this.hotelService.addNewHotel(hotel);
 
-        this.hotelService.addNewHotel(hotel);
-        return 1;
     }
 
-    //@PostMapping - to test it you need commment another PostMapping for now
-    public int removeHotelByName(String hotel_name) {
-        this.hotelService.removeHotel(hotel_name);
-        return 1;
+    @DeleteMapping(path = "delete/{hotel_name}")
+    public int archiveHotelByName(@PathVariable("hotel_name") String hotel_name) {
+        return this.hotelService.setIsActiveToFalse(hotel_name);
     }
 
-    //@PostMapping - to test it you need commment another PostMapping for now
-    public int updateHotelRate(String hotel_name, int rate) {
-        this.hotelService.updateHotelRate(hotel_name, rate);
-        return 1;
+    @PostMapping(path = "rate")
+    public int updateHotelRate(@JsonProperty String hotel_name, @JsonProperty Integer rate) {
+        return this.hotelService.updateHotelRate(hotel_name, rate);
     }
 
-    //@PostMapping - to test it you need commment another PostMapping for now
-    public int updateHotelEmail(String hotel_name, String email) {
-        this.hotelService.updateHotelEmail(hotel_name, email);
-        return 1;
+    @PostMapping(path = "email")
+    public int updateHotelEmail(@JsonProperty String hotel_name, @JsonProperty String email) {
+        return this.hotelService.updateHotelEmail(hotel_name, email);
     }
 
-    //@PostMapping - to test it you need commment another PostMapping for now
-    public int updateHotelCity(String hotel_name, String city) {
-        this.hotelService.updateHotelCity(hotel_name, city);
-        return 1;
+    @PostMapping(path = "city")
+    public int updateHotelCity(@JsonProperty String hotel_name, @JsonProperty String city) {
+        return this.hotelService.updateHotelCity(hotel_name, city);
     }
 
-    //@PostMapping - to test it you need commment another PostMapping for now
-    public int updateHotelAddress(String hotel_name, String address) {
-        this.hotelService.updateHotelAddress(hotel_name, address);
-        return 1;
+    @PostMapping(path = "adress")
+    public int updateHotelAddress(@JsonProperty String hotel_name, @JsonProperty String address) {
+        return this.hotelService.updateHotelAddress(hotel_name, address);
     }
 
-    //@PostMapping - to test it you need commment another PostMapping for now
-    public int updateHotelWebsite(String hotel_name, String website) {
-        this.hotelService.updateHotelWebsite(hotel_name, website);
-        return 1;
+    @PostMapping(path = "website")
+    public int updateHotelWebsite(@JsonProperty String hotel_name, @JsonProperty String website) {
+        return this.hotelService.updateHotelWebsite(hotel_name, website);
     }
 }
 
