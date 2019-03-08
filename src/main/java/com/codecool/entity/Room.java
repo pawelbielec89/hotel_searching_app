@@ -1,6 +1,9 @@
 package com.codecool.entity;
 
 
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -9,8 +12,10 @@ import java.util.Set;
 public class Room {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "room_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Generated(GenerationTime.INSERT)
+
+    @Column(name = "room_id", columnDefinition = "serial")
     private int id;
     @Column(name = "beds_amount")
     private int beds_amount;
