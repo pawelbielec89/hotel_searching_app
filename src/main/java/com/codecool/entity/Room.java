@@ -14,7 +14,6 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Generated(GenerationTime.INSERT)
-
     @Column(name = "room_id", columnDefinition = "serial")
     private int id;
     @Column(name = "beds_amount")
@@ -41,14 +40,6 @@ public class Room {
 
     public void setBeds_amount(int beds_amount) {
         this.beds_amount = beds_amount;
-    }
-
-    public int getMax_persons() {
-        return max_persons;
-    }
-
-    public void setMax_persons(int max_persons) {
-        this.max_persons = max_persons;
     }
 
     public String getDescription() {
