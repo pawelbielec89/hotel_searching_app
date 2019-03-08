@@ -27,4 +27,51 @@ public class Room {
     @Column(name = "is_active", nullable = false, columnDefinition = "boolean default true")
     private Boolean is_active;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getBeds_amount() {
+        return beds_amount;
+    }
+
+    public void setBeds_amount(int beds_amount) {
+        this.beds_amount = beds_amount;
+    }
+
+    public int getMax_persons() {
+        return max_persons;
+    }
+
+    public void setMax_persons(int max_persons) {
+        this.max_persons = max_persons;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Boolean getIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(Boolean is_active) {
+        this.is_active = is_active;
+    }
 }
