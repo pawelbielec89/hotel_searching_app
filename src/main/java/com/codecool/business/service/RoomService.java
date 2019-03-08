@@ -16,8 +16,8 @@ public class RoomService {
         this.roomRepository = roomRepository;
     }
 
-    public Optional<Room> getRoomByID(int roomID) {
-        return this.roomRepository.findById(roomID);
+    public Room getRoomByID(int roomID) {
+        return this.roomRepository.findById(roomID).get();
     }
 
     public List<Room> getRoomsByHotel(String hotelID) {
@@ -46,12 +46,12 @@ public class RoomService {
     }
 
     public int removeRoom(int roomID) {
-        roomRepository.delete(getRoomByID(roomID).get());
+        roomRepository.delete(getRoomByID(roomID));
         return 1;
     }
 
     public int updateRoomBedsAmount(int roomID, int bedsAmount) {
-        Room room = getRoomByID(roomID).get();
+        Room room = getRoomByID(roomID);
         if(room != null) {
             room.setBeds_amount(bedsAmount);
             roomRepository.save(room);
@@ -62,7 +62,7 @@ public class RoomService {
     }
 
     public int updateRoomDescription(int roomID, String description) {
-        Room room = getRoomByID(roomID).get();
+        Room room = getRoomByID(roomID);
         if(room != null) {
             room.setDescription(description);
             roomRepository.save(room);
@@ -73,7 +73,7 @@ public class RoomService {
     }
 
     public int setIsActiveToFalse(int roomID){
-        Room room = getRoomByID(roomID).get();
+        Room room = getRoomByID(roomID);
         if (room != null) {
             room.setIs_active(false);
         }
@@ -81,7 +81,7 @@ public class RoomService {
     }
 
     public int setIsActiveToTrue(int roomID){
-        Room room = getRoomByID(roomID).get();
+        Room room = getRoomByID(roomID);
         if (room != null) {
             room.setIs_active(true);
         }
