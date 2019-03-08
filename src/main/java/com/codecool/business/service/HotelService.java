@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HotelService {
@@ -43,12 +44,27 @@ public class HotelService {
         return 1;
     }
 
-    public int removeHotel(String hotelName) {
-        hotelRepository.delete(getHotelByName(hotelName));
-        return 1;
+    public int setIsActiveToFalse(String hotelName) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel != null) {
+            hotel.setIs_active(false);
+            hotelRepository.save(hotel);
+            return 1;
+        }
+        return 0;
     }
 
-    public int updateHotelRate(String hotelName, int rate) {
+    public int setIsActiveToTrue(String hotelName) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel != null) {
+            hotel.setIs_active(true);
+            hotelRepository.save(hotel);
+            return 1;
+        }
+        return 0;
+    }
+
+    public int updateHotelRate(String hotelName, Integer rate) {
         Hotel hotel = getHotelByName(hotelName);
         if(hotel != null) {
             hotel.setRate(rate);
@@ -101,5 +117,9 @@ public class HotelService {
         } else {
             return 0;
         }
+    }
+
+    public Optional<Hotel> getHotelById(Integer id) {
+        return hotelRepository.findById(id);
     }
 }
