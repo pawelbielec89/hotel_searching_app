@@ -43,14 +43,6 @@ public class Room {
         this.beds_amount = beds_amount;
     }
 
-    public int getMax_persons() {
-        return max_persons;
-    }
-
-    public void setMax_persons(int max_persons) {
-        this.max_persons = max_persons;
-    }
-
     public String getDescription() {
         return description;
     }
