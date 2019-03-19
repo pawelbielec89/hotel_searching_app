@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Hotel Searching App</title>
@@ -100,9 +100,7 @@
 </div>
 
 
-<div class="footer">
-<small>© Copyright 2019</small>
-</div>
+<div th:replace="templates/common-template :: footer"></div>
 
 </body>
 </html>
