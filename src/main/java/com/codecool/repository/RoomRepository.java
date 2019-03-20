@@ -1,5 +1,6 @@
 package com.codecool.repository;
 
+import com.codecool.entity.Hotel;
 import com.codecool.entity.Room;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -20,7 +21,7 @@ public interface RoomRepository extends CrudRepository<Room, Integer> {
         return result;
     }
 
-    default List<Room> findByHotel(String hotel){
+    default List<Room> findByHotel(Hotel hotel){
 
         List<Room> result = new ArrayList<>();
         for (Room room : this.findAll()) {
