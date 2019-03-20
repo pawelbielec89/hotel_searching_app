@@ -36,38 +36,38 @@ public class AppRestController {
 
 
     @PostMapping
-    public int addNewHotel(@RequestBody Hotel hotel) {
+    public boolean addNewHotel(@RequestBody Hotel hotel) {
         return this.hotelService.addNewHotel(hotel);
 
     }
 
     @DeleteMapping(path = "delete/{hotel_name}")
-    public int archiveHotelByName(@PathVariable("hotel_name") String hotel_name) {
+    public boolean archiveHotelByName(@PathVariable("hotel_name") String hotel_name) {
         return this.hotelService.setIsActiveToFalse(hotel_name);
     }
 
     @PostMapping(path = "rate")
-    public int updateHotelRate(@JsonProperty String hotel_name, @JsonProperty Integer rate) {
+    public boolean updateHotelRate(@JsonProperty String hotel_name, @JsonProperty Integer rate) {
         return this.hotelService.updateHotelRate(hotel_name, rate);
     }
 
     @PostMapping(path = "email")
-    public int updateHotelEmail(@JsonProperty String hotel_name, @JsonProperty String email) {
+    public boolean updateHotelEmail(@JsonProperty String hotel_name, @JsonProperty String email) {
         return this.hotelService.updateHotelEmail(hotel_name, email);
     }
 
     @PostMapping(path = "city")
-    public int updateHotelCity(@JsonProperty String hotel_name, @JsonProperty String city) {
+    public boolean updateHotelCity(@JsonProperty String hotel_name, @JsonProperty String city) {
         return this.hotelService.updateHotelCity(hotel_name, city);
     }
 
     @PostMapping(path = "adress")
-    public int updateHotelAddress(@JsonProperty String hotel_name, @JsonProperty String address) {
+    public boolean updateHotelAddress(@JsonProperty String hotel_name, @JsonProperty String address) {
         return this.hotelService.updateHotelAddress(hotel_name, address);
     }
 
     @PostMapping(path = "website")
-    public int updateHotelWebsite(@JsonProperty String hotel_name, @JsonProperty String website) {
+    public boolean updateHotelWebsite(@JsonProperty String hotel_name, @JsonProperty String website) {
         return this.hotelService.updateHotelWebsite(hotel_name, website);
     }
 }
