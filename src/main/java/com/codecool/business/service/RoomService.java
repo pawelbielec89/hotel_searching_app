@@ -1,13 +1,15 @@
 package com.codecool.business.service;
 
+import com.codecool.entity.Hotel;
 import com.codecool.entity.Room;
 import com.codecool.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
+@Service
 public class RoomService {
     private final RoomRepository roomRepository;
 
@@ -20,8 +22,8 @@ public class RoomService {
         return this.roomRepository.findById(roomID).get();
     }
 
-    public List<Room> getRoomsByHotel(String hotelID) {
-        return this.roomRepository.findByHotel(hotelID);
+    public List<Room> getRoomsByHotel(Hotel hotel) {
+        return this.roomRepository.findByHotel(hotel);
     }
 
     public List<Room> getRoomsByActiveStatus(boolean status) {
@@ -40,51 +42,47 @@ public class RoomService {
     }
 
 
-    public int addNewRoom(Room room) {
+    public boolean addNewRoom(Room room) {
         roomRepository.save(room);
-        return 1;
+        return true;
     }
 
-    public int removeRoom(int roomID) {
+    public boolean removeRoom(int roomID) {
         roomRepository.delete(getRoomByID(roomID));
-        return 1;
+        return true;
     }
 
-    public int updateRoomBedsAmount(int roomID, int bedsAmount) {
+    public boolean updateRoomBedsAmount(int roomID, int bedsAmount) {
         Room room = getRoomByID(roomID);
-        if(room != null) {
-            room.setBeds_amount(bedsAmount);
-            roomRepository.save(room);
-            return 1;
-        } else {
-            return 0;
-        }
+        if (room == null) { return false; }
+
+        room.setBeds_amount(bedsAmount);
+        roomRepository.save(room);
+        return true;
     }
 
-    public int updateRoomDescription(int roomID, String description) {
+    public boolean updateRoomDescription(int roomID, String description) {
         Room room = getRoomByID(roomID);
-        if(room != null) {
-            room.setDescription(description);
-            roomRepository.save(room);
-            return 1;
-        } else {
-            return 0;
-        }
+        if (room == null) { return false; }
+
+        room.setDescription(description);
+        roomRepository.save(room);
+        return true;
     }
 
-    public int setIsActiveToFalse(int roomID){
+    public boolean setIsActiveToFalse(int roomID){
         Room room = getRoomByID(roomID);
-        if (room != null) {
-            room.setIs_active(false);
-        }
-        return 1;
+        if (room == null) { return false; }
+
+        room.setIs_active(false);
+        return true;
     }
 
-    public int setIsActiveToTrue(int roomID){
+    public boolean setIsActiveToTrue(int roomID){
         Room room = getRoomByID(roomID);
-        if (room != null) {
-            room.setIs_active(true);
-        }
-        return 1;
+        if (room == null) { return false; }
+
+        room.setIs_active(true);
+        return true;
     }
 }

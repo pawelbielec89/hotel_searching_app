@@ -39,87 +39,75 @@ public class HotelService {
         return hotelListInCity;
     }
 
-    public int addNewHotel(Hotel hotel) {
-        hotelRepository.save(hotel);
-        return 1;
-    }
-
-    public int setIsActiveToFalse(String hotelName) {
-        Hotel hotel = getHotelByName(hotelName);
-        if(hotel != null) {
-            hotel.setIs_active(false);
-            hotelRepository.save(hotel);
-            return 1;
-        }
-        return 0;
-    }
-
-    public int setIsActiveToTrue(String hotelName) {
-        Hotel hotel = getHotelByName(hotelName);
-        if(hotel != null) {
-            hotel.setIs_active(true);
-            hotelRepository.save(hotel);
-            return 1;
-        }
-        return 0;
-    }
-
-    public int updateHotelRate(String hotelName, Integer rate) {
-        Hotel hotel = getHotelByName(hotelName);
-        if(hotel != null) {
-            hotel.setRate(rate);
-            hotelRepository.save(hotel);
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    public int updateHotelEmail(String hotelName, String email) {
-        Hotel hotel = getHotelByName(hotelName);
-        if(hotel != null) {
-            hotel.setEmail(email);
-            hotelRepository.save(hotel);
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    public int updateHotelCity(String hotelName, String city) {
-        Hotel hotel = getHotelByName(hotelName);
-        if (hotel != null) {
-            hotel.setCity(city);
-            hotelRepository.save(hotel);
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    public int updateHotelAddress(String hotelName, String address) {
-        Hotel hotel = getHotelByName(hotelName);
-        if(hotel != null) {
-            hotel.setAdress(address);
-            hotelRepository.save(hotel);
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    public int updateHotelWebsite(String hotelName, String website) {
-        Hotel hotel = getHotelByName(hotelName);
-        if (hotel != null) {
-            hotel.setWebsite(website);
-            hotelRepository.save(hotel);
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
     public Optional<Hotel> getHotelById(Integer id) {
         return hotelRepository.findById(id);
+    }
+
+    public boolean addNewHotel(Hotel hotel) {
+        hotelRepository.save(hotel);
+        return true;
+    }
+
+    public boolean setIsActiveToFalse(String hotelName) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel == null) { return false; }
+
+        hotel.setIs_active(false);
+        hotelRepository.save(hotel);
+        return true;
+    }
+
+    public boolean setIsActiveToTrue(String hotelName) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel == null) { return false; }
+
+        hotel.setIs_active(true);
+        hotelRepository.save(hotel);
+        return true;
+    }
+
+    public boolean updateHotelRate(String hotelName, Integer rate) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel == null) { return false; }
+
+        hotel.setRate(rate);
+        hotelRepository.save(hotel);
+        return true;
+    }
+
+    public boolean updateHotelEmail(String hotelName, String email) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel == null) { return false; }
+
+        hotel.setEmail(email);
+        hotelRepository.save(hotel);
+         return true;
+    }
+
+    public boolean updateHotelCity(String hotelName, String city) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel == null) { return false; }
+
+        hotel.setCity(city);
+        hotelRepository.save(hotel);
+        return true;
+    }
+
+    public boolean updateHotelAddress(String hotelName, String address) {
+        Hotel hotel = getHotelByName(hotelName);
+        if(hotel == null) { return false; }
+            hotel.setAdress(address);
+            hotelRepository.save(hotel);
+            return true;
+    }
+
+    public boolean updateHotelWebsite(String hotelName, String website) {
+        Hotel hotel = getHotelByName(hotelName);
+        if (hotel == null) { return false; }
+
+        hotel.setWebsite(website);
+        hotelRepository.save(hotel);
+
+        return true;
     }
 }
